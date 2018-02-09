@@ -1,0 +1,32 @@
+nav {
+	position: relative;
+	background: var( --main );
+	color: var( --white );
+	height: 4em;
+	margin-bottom: 1.5em;
+	padding: 0 0.5em;
+	display: flex;
+	justify-content: space-between;
+
+	h1 {
+		line-height: 4rem;
+	}
+
+	progress {
+		display: none;
+	}
+
+	> a {
+		display: block;
+		width: 2em;
+		height: 2em;
+		line-height: 4em;
+		background: linear-gradient( to bottom, var( --white ) 0, var( --white ) 20%, transparent calc( 20% + 1px ), transparent 40%, var( --white ) calc( 40% + 1 ), var( --white ) 60%, transparent calc( 60% + 1px ), transparent 80%, var( --white ) calc( 80% + 1 ) );
+	}
+
+	div {
+		position: absolute;
+		display: none;
+	}
+
+}

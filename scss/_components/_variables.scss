@@ -1,0 +1,15 @@
+:root {
+	--fallback-fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--font: 'Ampersand', 'Roboto', var( --header-font );
+	--header-font: 'Ampersand', 'Lato', var( --fallback-fonts );
+
+	--main: #FF9800;
+	--white: #FEFDFF;
+	--black: #000;
+	--gray: #A3A9AA;
+	--shadow: rgba( 0, 0, 0, 0.4 );
+	--selected-shadow: rgba( 17, 96, 210, 0.4 );
+
+}
+// Media queries
+$desktop: 'screen only and ( min-width: 60em )';

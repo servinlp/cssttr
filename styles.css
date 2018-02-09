@@ -1,0 +1,363 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("fonts/Lato-Regular.woff2") format("woff2"), url("fonts/Lato-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("fonts/Lato-Bold.woff2") format("woff2"), url("fonts/Lato-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/Roboto-Regular.woff2") format("woff2"), url("fonts/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Ampersand';
+  src: local("FreeSerif"), local("Baskerville"), local("Goudy Old Style"), local("Palatino"), local("Book Antiqua");
+  unicode-range: U+26; }
+
+:root {
+  --fallback-fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font: "Ampersand", "Roboto", var(--header-font);
+  --header-font: "Ampersand", "Lato", var(--fallback-fonts);
+  --main: #FF9800;
+  --white: #FEFDFF;
+  --black: #000;
+  --gray: #A3A9AA;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --selected-shadow: rgba(17, 96, 210, 0.4); }
+
+body {
+  font-family: var(--font); }
+
+* {
+  box-sizing: border-box; }
+
+h1 {
+  font: 700 1.6em var(--header-font); }
+
+p {
+  margin-bottom: 1.5em; }
+
+nav {
+  position: relative;
+  background: var(--main);
+  color: var(--white);
+  height: 4em;
+  margin-bottom: 1.5em;
+  padding: 0 0.5em;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between; }
+  nav h1 {
+    line-height: 4rem; }
+  nav progress {
+    display: none; }
+  nav > a {
+    display: block;
+    width: 2em;
+    height: 2em;
+    line-height: 4em;
+    background: linear-gradient(to bottom, var(--white) 0, var(--white) 20%, transparent calc( 20% + 1px), transparent 40%, var(--white) calc( 40% + 1), var(--white) 60%, transparent calc( 60% + 1px), transparent 80%, var(--white) calc( 80% + 1)); }
+  nav div {
+    position: absolute;
+    display: none; }
+
+main {
+  max-width: 80em;
+  margin: 0 auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  grid-gap: 2em;
+  -webkit-box-align: start;
+          align-items: start; }
+
+article {
+  position: relative;
+  transition: max-height 0.3s ease; }
+  @media screen {
+    article {
+      background: red; } }
+  @media screen {
+    article:nth-of-type(n+1):nth-of-type(-n+3) > div {
+      max-height: 20em; }
+      article:nth-of-type(n+1):nth-of-type(-n+3) > div figure {
+        height: 20em; } }
+  article > div {
+    height: auto;
+    max-height: 10em;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease;
+    transition: max-height 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: max-height 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+    pointer-events: none;
+    will-change: max-height;
+    box-shadow: 0 0 0.5em 1px var(--shadow); }
+    article > div > *:not(figure),
+    article > div > *:not(figure) *,
+    article > div footer {
+      visibility: hidden; }
+  article > label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1; }
+    article > label div {
+      position: absolute;
+      right: 1em;
+      top: 1.7em;
+      height: 0.4em;
+      width: 1.4em;
+      background: var(--white);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      opacity: 0;
+      transition: opacity 0.1s ease; }
+      article > label div:nth-child(1) {
+        -webkit-transform: translateY(-0.5em) rotate(45deg);
+                transform: translateY(-0.5em) rotate(45deg); }
+      article > label div:nth-child(2) {
+        -webkit-transform: translateY(-0.5em) rotate(-45deg);
+                transform: translateY(-0.5em) rotate(-45deg); }
+  article [type='checkbox'] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: -1;
+    transition: height 10ms ease; }
+    article [type='checkbox']:focus {
+      outline: none; }
+      article [type='checkbox']:focus ~ div {
+        -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+        box-shadow: 0 0 2em 3px var(--selected-shadow); }
+    article [type='checkbox']:not(:checked) {
+      transition-delay: 0.3s; }
+    article [type='checkbox']:checked {
+      height: 3em;
+      width: 3em; }
+      article [type='checkbox']:checked ~ div {
+        border-radius: 10px;
+        max-height: 1000px;
+        pointer-events: all;
+        -webkit-transform: scale(1);
+                transform: scale(1); }
+        article [type='checkbox']:checked ~ div figure {
+          height: 20em; }
+        article [type='checkbox']:checked ~ div figcaption {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0); }
+        article [type='checkbox']:checked ~ div p {
+          position: initial; }
+        article [type='checkbox']:checked ~ div *:not(figure) {
+          visibility: visible; }
+      article [type='checkbox']:checked + label {
+        height: 3em;
+        width: 3em; }
+        article [type='checkbox']:checked + label div {
+          opacity: 1; }
+  article form {
+    padding: 0 1em; }
+
+figure {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 2em;
+  height: 10em;
+  transition: height 0.2s ease; }
+  figure img {
+    width: 100%;
+    height: 85%;
+    -o-object-fit: cover;
+       object-fit: cover; }
+  figure p {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 -1rem;
+    font-size: 1.2em;
+    background: var(--white); }
+
+figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 1em;
+  background: var(--white);
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: translateY(1em);
+          transform: translateY(1em); }
+
+fieldset {
+  position: relative;
+  text-align: center;
+  padding: 0 1rem 2rem;
+  font-size: 0;
+  margin-bottom: 1em; }
+  fieldset legend {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 0.5em; }
+  fieldset label {
+    font-size: 1rem;
+    -webkit-box-align: center;
+            align-items: center;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-transform: rotate(0) scale(1);
+            transform: rotate(0) scale(1);
+    transition: all 0.3s ease;
+    width: 25%; }
+    fieldset label::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: var(--white);
+      z-index: -1;
+      transition: all 0.3s ease;
+      -webkit-transform: rotate(0) scale(1);
+              transform: rotate(0) scale(1); }
+  fieldset svg {
+    display: block;
+    height: 30px;
+    -webkit-box-ordinal-group: 0;
+            order: -1;
+    width: 30px; }
+  fieldset [type="radio"] {
+    position: absolute;
+    top: initial;
+    right: initial;
+    width: 22%;
+    height: 60%;
+    margin: 0;
+    z-index: -1;
+    opacity: 0; }
+    fieldset [type="radio"]:nth-of-type(1) {
+      left: 5%; }
+    fieldset [type="radio"]:focus + label::after {
+      box-shadow: 0 0 0.5em 1px var(--selected-shadow);
+      -webkit-transform: rotate(-20deg) scale(0.8);
+              transform: rotate(-20deg) scale(0.8); }
+    fieldset [type="radio"]:checked + label {
+      -webkit-transform: rotate(20deg) scale(1.2);
+              transform: rotate(20deg) scale(1.2); }
+
+ol {
+  padding: 0 1em; }
+  ol li {
+    position: relative;
+    display: block;
+    padding: 1em 2em 1em 1em;
+    margin-right: auto;
+    margin-bottom: 1em;
+    border-radius: 0 5px 5px;
+    background: var(--gray); }
+  ol p {
+    color: var(--white);
+    margin-bottom: 0.5em; }
+  ol footer p {
+    font-size: 0.7em; }
+  ol footer [data-status="SEND"],
+  ol footer [data-status="DELIVERING"] {
+    font-size: 0; }
+    ol footer [data-status="SEND"]::before,
+    ol footer [data-status="DELIVERING"]::before {
+      content: '✓';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1rem;
+      letter-spacing: -5px; }
+  ol footer [data-status="SEND"]::before {
+    content: '✓✓'; }
+
+article form {
+  padding: 0 1em 1em; }
+  article form label {
+    display: block;
+    margin-bottom: 0.5em; }
+  article form textarea {
+    width: 100%;
+    min-height: 4em;
+    margin-bottom: 1em; }
+  article form button {
+    width: 100%;
+    padding: 1em;
+    border: 0;
+    background: var(--main);
+    font-size: 1em;
+    color: var(--white);
+    box-shadow: 0 0 0.5em 1px var(--selected-shadow); }
+
+/*# sourceMappingURL=styles.css.map */
