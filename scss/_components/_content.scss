@@ -23,10 +23,6 @@ article {
 	position: relative;
 	transition: max-height 0.3s ease;
 
-	@media #{$desktop} {
-		background: red;
-	}
-
 	// &:first-of-type:nth-last-of-type( n + 3 ):nth-of-type( n + 1 ):nth-of-type( -n + 3 ) > div,
 	// &:first-of-type:nth-last-of-type( n + 3 ):nth-of-type( n + 1 ):nth-of-type( -n + 3 ) ~ * > div {
 	&:nth-of-type(n+1):nth-of-type(-n+3) > div {

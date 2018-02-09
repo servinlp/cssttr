@@ -131,9 +131,6 @@ article {
   position: relative;
   transition: max-height 0.3s ease; }
   @media screen {
-    article {
-      background: red; } }
-  @media screen {
     article:nth-of-type(n+1):nth-of-type(-n+3) > div {
       max-height: 20em; }
       article:nth-of-type(n+1):nth-of-type(-n+3) > div figure {

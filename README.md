@@ -1,3 +1,11 @@
-# Components
+# CSS To the rescue
 
-Rating example makes use of Emoji from: http://emojione.com
+To use start with
+```
+npm install
+```
+
+To start the dev server
+```
+npm run serve
+```
