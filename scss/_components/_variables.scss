@@ -10,6 +10,29 @@
 	--shadow: rgba( 0, 0, 0, 0.4 );
 	--selected-shadow: rgba( 17, 96, 210, 0.4 );
 
+	--desktop: 80em;
+
 }
 // Media queries
-$desktop: 'screen only and ( min-width: 60em )';
+$desktop: 80em;
+$medium: 60em;
+$medium-small: 40em;
+
+@mixin ms {
+   @media ( min-width: #{$medium-small} ) {
+       @content;
+   }
+}
+
+@mixin m {
+   @media ( min-width: #{$medium} ) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media ( min-width: #{$desktop} ) {
+       @content;
+   }
+}

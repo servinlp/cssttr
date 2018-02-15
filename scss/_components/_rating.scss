@@ -68,5 +68,12 @@ fieldset {
 			transform: rotate( 20deg ) scale( 1.2 );
 		}
 	}
+
+	progress {
+		display: block;
+		font-size: 1rem;
+		width: 100%;
+		margin-top: 1.2em;
+	}
 }
 
