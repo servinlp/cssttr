@@ -101,12 +101,9 @@ nav {
   width: 100%;
   margin-bottom: 1.5em;
   padding: 0 1em;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   overflow: hidden;
   z-index: 5; }
   @media (min-width: 80em) {
@@ -127,9 +124,7 @@ nav {
     height: 1.5em;
     background-color: var(--main);
     background-image: repeating-linear-gradient(to bottom, var(--white), var(--white) 15%, transparent calc( 15% + 1px), transparent 40%);
-    transition: -webkit-transform 0.2s ease;
-    transition: transform 0.2s ease;
-    transition: transform 0.2s ease, -webkit-transform 0.2s ease; }
+    transition: transform 0.2s ease; }
   nav > [type="checkbox"] {
     position: absolute;
     right: 1em;
@@ -139,17 +134,16 @@ nav {
     padding: 0; }
     @media (min-width: 80em) {
       nav > [type="checkbox"] {
-        right: calc( -0.5rem + ( var( --desktop ) / 2 )); } }
+        right: 0;
+        right: calc( ( 100vw - var( --desktop ) ) / 2); } }
     nav > [type="checkbox"]:focus + label {
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1); }
+      transform: scale(1.1); }
     nav > [type="checkbox"]:checked + label {
       background-image: linear-gradient(45deg, transparent 0, transparent 42.5%, var(--white) calc( 42.5% + 1px), var(--white) 57.5%, transparent calc( 57.5% + 1px), transparent 100%), linear-gradient(-45deg, transparent 0, transparent 42.5%, var(--white) calc( 42.5% + 1px), var(--white) 57.5%, transparent calc( 57.5% + 1px), transparent 100%); }
     nav > [type="checkbox"]:checked ~ ol {
       display: block;
       opacity: 1;
-      -webkit-transform: translateX(0);
-              transform: translateX(0); }
+      transform: translateX(0); }
   nav ol {
     position: fixed;
     top: 0;
@@ -163,11 +157,8 @@ nav {
     padding: 3.4em 1em 1em;
     background: var(--main);
     box-shadow: 0 0 0.5em 1px var(--shadow);
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+    transform: translateX(100%);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    transition: transform 0.3s ease, opacity 0.3s ease, -webkit-transform 0.3s ease;
     z-index: 2; }
     nav ol li {
       line-height: 1.4;
@@ -185,16 +176,12 @@ dialog a {
   position: relative;
   display: block;
   color: var(--white);
-  transition: color 0.2s ease, -webkit-transform 0.2s ease;
   transition: color 0.2s ease, transform 0.2s ease;
-  transition: color 0.2s ease, transform 0.2s ease, -webkit-transform 0.2s ease;
-  -webkit-transform-origin: left center;
-          transform-origin: left center; }
+  transform-origin: left center; }
   nav a:focus,
   dialog a:focus {
     color: var(--black);
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); }
+    transform: scale(1.1); }
 
 nav button[type=submit],
 dialog button[type=submit] {
@@ -206,21 +193,17 @@ dialog button[type=submit] {
   text-align: center;
   padding: 0.6em 0;
   font-size: 1.3em;
-  transition: color 0.2s ease, border-color 0.2s ease, -webkit-transform 0.2s ease;
-  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, -webkit-transform 0.2s ease; }
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
   nav button[type=submit]:focus,
   dialog button[type=submit]:focus {
     border-color: var(--black);
     color: var(--black);
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1); }
+    transform: scale(1.1); }
 
 dialog {
   position: fixed;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   z-index: 11;
   width: 400px;
   color: var(--white);
@@ -232,14 +215,10 @@ dialog {
     display: block; }
     dialog:target ~ nav,
     dialog:target ~ main {
-      -webkit-filter: blur(10px);
-              filter: blur(10px); }
+      filter: blur(10px); }
   dialog[open] ~ nav,
   dialog[open] ~ main {
-    -webkit-filter: blur(10px);
-            filter: blur(10px); }
-  dialog::-webkit-backdrop {
-    background: rgba(255, 255, 255, 0.4); }
+    filter: blur(10px); }
   dialog::backdrop {
     background: rgba(255, 255, 255, 0.4); }
   dialog * + * {
@@ -271,14 +250,11 @@ dialog {
       left: 0;
       margin: 0;
       background: var(--white);
-      -webkit-transform-origin: center;
-              transform-origin: center; }
+      transform-origin: center; }
       dialog > button div:first-child {
-        -webkit-transform: rotate(45deg);
-                transform: rotate(45deg); }
+        transform: rotate(45deg); }
       dialog > button div:last-child {
-        -webkit-transform: rotate(-45deg);
-                transform: rotate(-45deg); }
+        transform: rotate(-45deg); }
 
 main {
   max-width: 80em;
@@ -287,8 +263,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   grid-gap: 2em;
-  -webkit-box-align: start;
-          align-items: start; }
+  align-items: start; }
   @media (min-width: 60em) {
     main {
       grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); } }
@@ -301,6 +276,8 @@ main {
 article {
   position: relative;
   transition: max-height 0.3s ease; }
+  article * {
+    transform: translate3d(0, 0, 0); }
   @media (min-width: 60em) {
     article:nth-of-type(n+1):nth-of-type(-n+3) > div {
       max-height: 20em; }
@@ -312,9 +289,7 @@ article {
     width: 100%;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease;
     transition: max-height 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    transition: max-height 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
     pointer-events: none;
     will-change: max-height;
     box-shadow: 0 0 0.5em 1px var(--shadow); }
@@ -341,16 +316,13 @@ article {
       height: 0.4em;
       width: 1.4em;
       background: var(--white);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
+      transform-origin: center center;
       opacity: 0;
       transition: opacity 0.1s ease; }
       article > label div:nth-child(1) {
-        -webkit-transform: translateY(-0.5em) rotate(45deg);
-                transform: translateY(-0.5em) rotate(45deg); }
+        transform: translateY(-0.5em) rotate(45deg); }
       article > label div:nth-child(2) {
-        -webkit-transform: translateY(-0.5em) rotate(-45deg);
-                transform: translateY(-0.5em) rotate(-45deg); }
+        transform: translateY(-0.5em) rotate(-45deg); }
   article [type='checkbox'] {
     position: absolute;
     right: 0;
@@ -363,8 +335,7 @@ article {
     article [type='checkbox']:focus {
       outline: none; }
       article [type='checkbox']:focus ~ div {
-        -webkit-transform: scale(1.1);
-                transform: scale(1.1);
+        transform: scale(1.1);
         box-shadow: 0 0 2em 3px var(--selected-shadow); }
     article [type='checkbox']:not(:checked) {
       transition-delay: 0.3s; }
@@ -375,13 +346,11 @@ article {
         border-radius: 10px;
         max-height: 1000px;
         pointer-events: all;
-        -webkit-transform: scale(1);
-                transform: scale(1); }
+        transform: scale(1); }
         article [type='checkbox']:checked ~ div figure {
           height: 20em; }
         article [type='checkbox']:checked ~ div figcaption {
-          -webkit-transform: translateY(0);
-                  transform: translateY(0); }
+          transform: translateY(0); }
         article [type='checkbox']:checked ~ div p {
           position: initial; }
         article [type='checkbox']:checked ~ div *:not(figure) {
@@ -403,8 +372,7 @@ figure {
   figure img {
     width: 100%;
     height: 85%;
-    -o-object-fit: cover;
-       object-fit: cover; }
+    object-fit: cover; }
   figure p {
     width: 100%;
     padding: 1rem;
@@ -418,11 +386,8 @@ figcaption {
   width: 100%;
   padding: 0 1em;
   background: var(--white);
-  transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  -webkit-transform: translateY(1em);
-          transform: translateY(1em); }
+  transform: translateY(1em); }
 
 fieldset {
   position: relative;
@@ -438,15 +403,10 @@ fieldset {
     margin-bottom: 0.5em; }
   fieldset label {
     font-size: 1rem;
-    -webkit-box-align: center;
-            align-items: center;
-    display: -webkit-inline-box;
+    align-items: center;
     display: inline-flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    -webkit-transform: rotate(0) scale(1);
-            transform: rotate(0) scale(1);
+    flex-direction: column;
+    transform: rotate(0) scale(1);
     transition: all 0.3s ease;
     width: 25%; }
     fieldset label::after {
@@ -459,13 +419,11 @@ fieldset {
       background: var(--white);
       z-index: -1;
       transition: all 0.3s ease;
-      -webkit-transform: rotate(0) scale(1);
-              transform: rotate(0) scale(1); }
+      transform: rotate(0) scale(1); }
   fieldset svg {
     display: block;
     height: 30px;
-    -webkit-box-ordinal-group: 0;
-            order: -1;
+    order: -1;
     width: 30px; }
   fieldset [type="radio"] {
     position: absolute;
@@ -480,11 +438,9 @@ fieldset {
       left: 5%; }
     fieldset [type="radio"]:focus + label::after {
       box-shadow: 0 0 0.5em 1px var(--selected-shadow);
-      -webkit-transform: rotate(-20deg) scale(0.8);
-              transform: rotate(-20deg) scale(0.8); }
+      transform: rotate(-20deg) scale(0.8); }
     fieldset [type="radio"]:checked + label {
-      -webkit-transform: rotate(20deg) scale(1.2);
-              transform: rotate(20deg) scale(1.2); }
+      transform: rotate(20deg) scale(1.2); }
   fieldset progress {
     display: block;
     font-size: 1rem;

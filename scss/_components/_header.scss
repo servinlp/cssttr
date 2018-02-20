@@ -52,7 +52,8 @@ nav {
 		padding: 0;
 
 		@include xl {
-			right: calc( -0.5rem + ( var( --desktop ) / 2 ) );
+			right: 0;
+			right: calc( ( 100vw - var( --desktop ) ) / 2 );
 		}
 
 		&:focus + label {

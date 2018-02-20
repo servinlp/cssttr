@@ -31,15 +31,9 @@ gulp.task( 'cssLint', () => {
 
 gulp.task( 'css', () => {
 
-	const plugins = [
-        autoprefixer( { browsers: [ 'last 1 version' ] } )
-        // postcssMergeRules()
-    ]
-
     return gulp.src( './scss/*.scss' )
 		.pipe( sourcemaps.init() )
 		.pipe( sass().on( 'error', sass.logError ) )
-        .pipe( postcss( plugins ) )
 		.pipe( sourcemaps.write('.') )
         .pipe(gulp.dest( './' ) )
 		.pipe( browserSync.stream() )

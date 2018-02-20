@@ -24,8 +24,10 @@ article {
 	position: relative;
 	transition: max-height 0.3s ease;
 
-	// &:first-of-type:nth-last-of-type( n + 3 ):nth-of-type( n + 1 ):nth-of-type( -n + 3 ) > div,
-	// &:first-of-type:nth-last-of-type( n + 3 ):nth-of-type( n + 1 ):nth-of-type( -n + 3 ) ~ * > div {
+	* {
+		transform: translate3d(0,0,0);
+	}
+
 	&:nth-of-type(n+1):nth-of-type(-n+3) > div {
 
 		@include m {
