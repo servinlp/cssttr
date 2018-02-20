@@ -26,8 +26,8 @@ nav {
 	}
 
 	form {
-		input[type="email"],
-		input[type="password"] {
+		[type="email"],
+		[type="password"] {
 			width: 100%;
 			margin-bottom: 1em;
 		}

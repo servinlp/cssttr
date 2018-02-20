@@ -19,20 +19,21 @@ $medium: 60em;
 $medium-small: 40em;
 
 @mixin ms {
-   @media ( min-width: #{$medium-small} ) {
-       @content;
-   }
+	@media ( min-width: #{$medium-small} ) {
+		@content;
+	}
 }
 
 @mixin m {
-   @media ( min-width: #{$medium} ) {
-       @content;
-   }
+	@media ( min-width: #{$medium} ) {
+		@content;
+	}
 }
 
 // Extra large devices
+
 @mixin xl {
-   @media ( min-width: #{$desktop} ) {
-       @content;
-   }
+	@media ( min-width: #{$desktop} ) {
+		@content;
+	}
 }

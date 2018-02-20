@@ -124,91 +124,6 @@ header {
       height: 0.4em;
       margin-bottom: 0.4em; }
 
-dialog {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 11;
-  width: 400px;
-  color: var(--white);
-  background: var(--main);
-  border: none;
-  padding: 3em;
-  font-size: 1em; }
-  dialog:target {
-    display: block; }
-    dialog:target ~ nav,
-    dialog:target ~ main {
-      filter: blur(10px); }
-  dialog button[type=submit] {
-    position: relative;
-    width: 100%;
-    border: 2px solid var(--white);
-    background: transparent;
-    color: var(--white);
-    text-align: center;
-    padding: 0.6em 0;
-    font-size: 1.3em;
-    transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
-    dialog button[type=submit]:focus {
-      border-color: var(--black);
-      color: var(--black);
-      transform: scale(1.1); }
-  dialog[open] ~ nav,
-  dialog[open] ~ main {
-    filter: blur(10px); }
-  dialog::backdrop {
-    background: rgba(255, 255, 255, 0.4); }
-  dialog * + * {
-    margin-top: 1em; }
-  dialog a,
-  dialog label,
-  dialog input[type=email],
-  dialog input[type=password] {
-    width: 100%;
-    display: block; }
-  dialog input[type=checkbox] {
-    display: inline; }
-    dialog input[type=checkbox] + label {
-      display: inline; }
-  dialog form a {
-    position: relative;
-    display: block;
-    color: var(--white);
-    transition: color 0.2s ease, transform 0.2s ease;
-    transform-origin: left center; }
-    dialog form a:focus {
-      color: var(--black);
-      transform: scale(1.1); }
-
-nav > a,
-dialog > a {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  width: 2em;
-  height: 2em;
-  background: transparent;
-  border: none;
-  padding: 0; }
-  nav > a div,
-  dialog > a div {
-    width: 100%;
-    height: 0.5em;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    margin: 0;
-    background: var(--white);
-    transform-origin: center; }
-    nav > a div:first-child,
-    dialog > a div:first-child {
-      transform: translateY(-50%) rotate(45deg); }
-    nav > a div:last-child,
-    dialog > a div:last-child {
-      transform-origin: center;
-      transform: translateY(-50%) rotate(-45deg); }
-
 nav {
   position: fixed;
   right: 0;
@@ -231,12 +146,106 @@ nav {
     line-height: 1.4;
     margin-bottom: 0.7em;
     font-size: 1.3em; }
-  nav form input[type="email"],
-  nav form input[type="password"] {
+  nav form [type="email"],
+  nav form [type="password"] {
     width: 100%;
     margin-bottom: 1em; }
   nav form a {
     margin: 1em 0; }
+
+dialog {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
+  width: 400px;
+  color: var(--white);
+  background: var(--main);
+  border: 0;
+  padding: 3em;
+  font-size: 1em; }
+  dialog:target {
+    display: block; }
+    dialog:target ~ nav,
+    dialog:target ~ main {
+      filter: blur(10px); }
+  dialog [type=submit] {
+    position: relative;
+    width: 100%;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    text-align: center;
+    padding: 0.6em 0;
+    font-size: 1.3em;
+    transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
+    dialog [type=submit]:focus {
+      border-color: var(--black);
+      color: var(--black);
+      transform: scale(1.1); }
+  dialog[open] ~ nav,
+  dialog[open] ~ main {
+    filter: blur(10px); }
+  dialog::backdrop {
+    --backdrop: rgba(255, 255, 255, 0.4);
+    background: var(--backdrop); }
+  dialog * + * {
+    margin-top: 1em; }
+  dialog a,
+  dialog label,
+  dialog [type=email],
+  dialog [type=password] {
+    width: 100%;
+    display: block; }
+  dialog [type=email],
+  dialog [type=password] {
+    padding: 0.7em;
+    font-size: 1rem;
+    border: 0; }
+  dialog [type=checkbox] {
+    display: inline; }
+    dialog [type=checkbox] + label {
+      display: inline; }
+
+nav ol a,
+dialog form a {
+  position: relative;
+  display: block;
+  color: var(--white);
+  transition: color 0.2s ease, transform 0.2s ease;
+  transform-origin: left center; }
+  nav ol a:focus,
+  dialog form a:focus {
+    color: var(--black);
+    transform: scale(1.1); }
+
+nav > a,
+dialog > a {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 2em;
+  height: 2em;
+  background: transparent;
+  border: 0;
+  padding: 0; }
+  nav > a div,
+  dialog > a div {
+    width: 100%;
+    height: 0.5em;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: 0;
+    background: var(--white);
+    transform-origin: center; }
+    nav > a div:first-child,
+    dialog > a div:first-child {
+      transform: translateY(-50%) rotate(45deg); }
+    nav > a div:last-child,
+    dialog > a div:last-child {
+      transform-origin: center;
+      transform: translateY(-50%) rotate(-45deg); }
 
 main {
   max-width: 80em;
@@ -258,8 +267,6 @@ main {
 article {
   position: relative;
   transition: max-height 0.3s ease; }
-  article * {
-    transform: translate3d(0, 0, 0); }
   @media (min-width: 60em) {
     article:nth-of-type(n+1):nth-of-type(-n+3) > div {
       max-height: 20em; }
@@ -275,15 +282,16 @@ article {
     pointer-events: none;
     will-change: max-height;
     box-shadow: 0 0 0.5em 1px var(--shadow); }
+    @media (min-width: 60em) {
+      article > div {
+        max-height: 15em; } }
     article > div > *:not(figure),
     article > div > *:not(figure) *,
     article > div footer {
       visibility: hidden; }
     @media (min-width: 60em) {
-      article > div {
-        max-height: 15em; }
-        article > div figure {
-          height: 15em; } }
+      article > div figure {
+        height: 15em; } }
   article > label {
     position: absolute;
     right: 0;
@@ -344,6 +352,10 @@ article {
           opacity: 1; }
   article form {
     padding: 0 1em; }
+  article textarea {
+    padding: 1em;
+    font-size: 1em;
+    font-family: var(--font); }
 
 figure {
   position: relative;
@@ -370,6 +382,8 @@ figcaption {
   background: var(--white);
   transition: transform 0.3s ease;
   transform: translateY(1em); }
+  figcaption a {
+    color: var(--black); }
 
 fieldset {
   position: relative;
@@ -451,18 +465,18 @@ article ol {
     margin-bottom: 0.5em; }
   article ol footer p {
     font-size: 0.7em; }
-  article ol footer [data-status="SEND"],
-  article ol footer [data-status="DELIVERING"] {
+  article ol [data-status="SEND"],
+  article ol [data-status="DELIVERING"] {
     font-size: 0; }
-    article ol footer [data-status="SEND"]::before,
-    article ol footer [data-status="DELIVERING"]::before {
+    article ol [data-status="SEND"]::before,
+    article ol [data-status="DELIVERING"]::before {
       content: '✓';
       position: absolute;
       top: 10px;
       right: 10px;
       font-size: 1rem;
       letter-spacing: -5px; }
-  article ol footer [data-status="SEND"]::before {
+  article ol [data-status="SEND"]::before {
     content: '✓✓'; }
 
 article form {

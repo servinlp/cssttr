@@ -59,7 +59,6 @@ fieldset {
 
 		&:focus + label::after {
 			box-shadow: 0 0 0.5em 1px var( --selected-shadow );
-			// transform: rotate( 0 ) scale( 1 );
 			transform: rotate( -20deg ) scale( 0.8 );
 
 		}
@@ -74,6 +73,17 @@ fieldset {
 		font-size: 1rem;
 		width: 100%;
 		margin-top: 1.2em;
+		-webkit-appearance: none;
+		appearance: none;
+
+		&::-webkit-progress-bar {
+			background: var( --white );
+			box-shadow: -1px 1px 2px var( --shadow ) inset;
+		}
+
+		&::-webkit-progress-value {
+			background: var( --main );
+		}
 	}
 }
 

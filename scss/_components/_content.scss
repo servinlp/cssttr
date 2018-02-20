@@ -24,14 +24,9 @@ article {
 	position: relative;
 	transition: max-height 0.3s ease;
 
-	* {
-		transform: translate3d(0,0,0);
-	}
-
 	&:nth-of-type(n+1):nth-of-type(-n+3) > div {
 
 		@include m {
-			// background: red;
 			max-height: 20em;
 
 			figure {
@@ -52,16 +47,18 @@ article {
 		will-change: max-height;
 		box-shadow: 0 0 0.5em 1px var( --shadow );
 
+		@include m {
+			max-height: 15em;
+		}
+
 		> *:not( figure ),
 		> *:not( figure ) *,
 		footer {
 			visibility: hidden;
 		}
 
-		@include m {
-			max-height: 15em;
-
-			figure {
+		figure {
+			@include m {
 				height: 15em;
 			}
 		}
@@ -163,6 +160,13 @@ article {
 	form {
 		padding: 0 1em;
 	}
+
+	textarea {
+	// TEXTAREA {
+		padding: 1em;
+		font-size: 1em;
+		font-family: var( --font );
+	}
 }
 
 figure {
@@ -195,4 +199,8 @@ figcaption {
 	background: var( --white );
 	transition: transform 0.3s ease;
 	transform: translateY( 1em );
+
+	a {
+		color: var( --black );
+	}
 }

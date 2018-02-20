@@ -23,8 +23,11 @@
 
 		e.preventDefault()
 
-		const dialog = document.querySelector( 'dialog' )
+		const dialog = document.querySelector( 'dialog' ),
+			loginButton = document.querySelector( '[href="#login"]' )
+
 		dialog.close()
+		loginButton.focus()
 
 	}
 
