@@ -3,7 +3,7 @@
 	if ( typeof HTMLDialogElement === 'function' ) {
 
 		const loginButton = document.querySelector( '[href="#login"]' ),
-			closeLoginButton = document.querySelector( 'dialog > button' )
+			closeLoginButton = document.querySelector( 'dialog > a' )
 
 		loginButton.addEventListener( 'click', openDialog )
 		closeLoginButton.addEventListener( 'click', closeDialog )

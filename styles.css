@@ -93,7 +93,7 @@ h1 {
 p {
   margin-bottom: 1.5em; }
 
-nav {
+header {
   position: relative;
   background: var(--main);
   color: var(--white);
@@ -104,101 +104,25 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
-  z-index: 5; }
+  overflow: hidden; }
   @media (min-width: 80em) {
-    nav {
+    header {
       padding: 0 calc( 50% - ( var( --desktop ) / 2 )); } }
-  nav > a {
+  header a:first-child {
     color: var(--white);
-    padding: 1em;
-    opacity: 0;
-    transition: opacity 0.2s ease; }
-    nav > a:focus {
-      opacity: 1; }
-  nav > label {
-    position: relative;
-    z-index: 3;
-    display: block;
-    width: 1.5em;
-    height: 1.5em;
-    background-color: var(--main);
-    background-image: repeating-linear-gradient(to bottom, var(--white), var(--white) 15%, transparent calc( 15% + 1px), transparent 40%);
+    text-decoration: none; }
+  header a:last-child {
+    width: 2em;
+    height: 2em;
+    transform-origin: center;
     transition: transform 0.2s ease; }
-  nav > [type="checkbox"] {
-    position: absolute;
-    right: 1em;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 0;
-    padding: 0; }
-    @media (min-width: 80em) {
-      nav > [type="checkbox"] {
-        right: 0;
-        right: calc( ( 100vw - var( --desktop ) ) / 2); } }
-    nav > [type="checkbox"]:focus + label {
+    header a:last-child:focus {
       transform: scale(1.1); }
-    nav > [type="checkbox"]:checked + label {
-      background-image: linear-gradient(45deg, transparent 0, transparent 42.5%, var(--white) calc( 42.5% + 1px), var(--white) 57.5%, transparent calc( 57.5% + 1px), transparent 100%), linear-gradient(-45deg, transparent 0, transparent 42.5%, var(--white) calc( 42.5% + 1px), var(--white) 57.5%, transparent calc( 57.5% + 1px), transparent 100%); }
-    nav > [type="checkbox"]:checked ~ ol {
-      display: block;
-      opacity: 1;
-      transform: translateX(0); }
-  nav ol {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 20%;
-    opacity: 0;
-    display: none;
-    min-height: 100vh;
-    max-width: 25em;
-    min-width: 15em;
-    padding: 3.4em 1em 1em;
-    background: var(--main);
-    box-shadow: 0 0 0.5em 1px var(--shadow);
-    transform: translateX(100%);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 2; }
-    nav ol li {
-      line-height: 1.4;
-      margin-bottom: 0.7em;
-      font-size: 1.3em; }
-    nav ol form input[type="email"],
-    nav ol form input[type="password"] {
+    header a:last-child div {
+      background: var(--white);
       width: 100%;
-      margin-bottom: 1em; }
-    nav ol form a {
-      margin: 1em 0; }
-
-nav a,
-dialog a {
-  position: relative;
-  display: block;
-  color: var(--white);
-  transition: color 0.2s ease, transform 0.2s ease;
-  transform-origin: left center; }
-  nav a:focus,
-  dialog a:focus {
-    color: var(--black);
-    transform: scale(1.1); }
-
-nav button[type=submit],
-dialog button[type=submit] {
-  position: relative;
-  width: 100%;
-  border: 2px solid var(--white);
-  background: transparent;
-  color: var(--white);
-  text-align: center;
-  padding: 0.6em 0;
-  font-size: 1.3em;
-  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
-  nav button[type=submit]:focus,
-  dialog button[type=submit]:focus {
-    border-color: var(--black);
-    color: var(--black);
-    transform: scale(1.1); }
+      height: 0.4em;
+      margin-bottom: 0.4em; }
 
 dialog {
   position: fixed;
@@ -216,6 +140,20 @@ dialog {
     dialog:target ~ nav,
     dialog:target ~ main {
       filter: blur(10px); }
+  dialog button[type=submit] {
+    position: relative;
+    width: 100%;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    text-align: center;
+    padding: 0.6em 0;
+    font-size: 1.3em;
+    transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease; }
+    dialog button[type=submit]:focus {
+      border-color: var(--black);
+      color: var(--black);
+      transform: scale(1.1); }
   dialog[open] ~ nav,
   dialog[open] ~ main {
     filter: blur(10px); }
@@ -233,28 +171,72 @@ dialog {
     display: inline; }
     dialog input[type=checkbox] + label {
       display: inline; }
-  dialog > button {
+  dialog form a {
+    position: relative;
+    display: block;
+    color: var(--white);
+    transition: color 0.2s ease, transform 0.2s ease;
+    transform-origin: left center; }
+    dialog form a:focus {
+      color: var(--black);
+      transform: scale(1.1); }
+
+nav > a,
+dialog > a {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 2em;
+  height: 2em;
+  background: transparent;
+  border: none;
+  padding: 0; }
+  nav > a div,
+  dialog > a div {
+    width: 100%;
+    height: 0.5em;
     position: absolute;
-    top: 1em;
-    right: 1em;
-    width: 2em;
-    height: 2em;
-    background: transparent;
-    border: none;
-    padding: 0; }
-    dialog > button div {
-      width: 100%;
-      height: 0.5em;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      margin: 0;
-      background: var(--white);
-      transform-origin: center; }
-      dialog > button div:first-child {
-        transform: rotate(45deg); }
-      dialog > button div:last-child {
-        transform: rotate(-45deg); }
+    top: 50%;
+    left: 0;
+    margin: 0;
+    background: var(--white);
+    transform-origin: center; }
+    nav > a div:first-child,
+    dialog > a div:first-child {
+      transform: translateY(-50%) rotate(45deg); }
+    nav > a div:last-child,
+    dialog > a div:last-child {
+      transform-origin: center;
+      transform: translateY(-50%) rotate(-45deg); }
+
+nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 20%;
+  min-height: 100vh;
+  max-width: 25em;
+  min-width: 15em;
+  z-index: 1;
+  opacity: 0;
+  padding: 3.4em 1em 1em;
+  background: var(--main);
+  box-shadow: 0 0 0.5em 1px var(--shadow);
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease; }
+  nav:target {
+    opacity: 1;
+    transform: translateX(0); }
+  nav li {
+    line-height: 1.4;
+    margin-bottom: 0.7em;
+    font-size: 1.3em; }
+  nav form input[type="email"],
+  nav form input[type="password"] {
+    width: 100%;
+    margin-bottom: 1em; }
+  nav form a {
+    margin: 1em 0; }
 
 main {
   max-width: 80em;
@@ -445,7 +427,14 @@ fieldset {
     display: block;
     font-size: 1rem;
     width: 100%;
-    margin-top: 1.2em; }
+    margin-top: 1.2em;
+    -webkit-appearance: none;
+    appearance: none; }
+    fieldset progress::-webkit-progress-bar {
+      background: var(--white);
+      box-shadow: -1px 1px 2px var(--shadow) inset; }
+    fieldset progress::-webkit-progress-value {
+      background: var(--main); }
 
 article ol {
   padding: 0 1em; }

@@ -14,10 +14,10 @@
 
 	<dialog id="login">
 
-		<button>
+		<a href="#">
 			<div></div>
 			<div></div>
-		</button>
+		</a>
 
 		<form action="" method="post">
 
@@ -37,30 +37,19 @@
 		</form>
 	</dialog>
 
-	<nav>
+	<header>
 
-	    <h1>NS</h1>
+	    <a href="#"><h1>NS</h1></a>
 
-		<a href="#content">Skip to content</a>
+		<a href="#navigation" id="hamburger">
+			<div></div>
+			<div></div>
+			<div></div>
+		</a>
 
-		<input type="checkbox" id="menu">
-		<label for="menu"></label>
+	</header>
 
-		<ol>
-			<li>
-				<a href="/cart">Work</a>
-			</li>
-			<li>
-				<a href="#main-content" aria-label="Address, current step">Address</a>
-			</li>
-			<li>
-				<a href="#login">Login</a>
-			</li>
-		</ol>
-
-	</nav>
-
-	<main id="content">
+	<main>
 		<h1>Showcase & stuff</h1>
 
 		<article>
@@ -692,6 +681,26 @@
 		</article>
 
 	</main>
+
+	<nav id="navigation">
+
+		<a href="#hamburger">
+			<div></div>
+			<div></div>
+		</a>
+
+		<ol>
+			<li>
+				<a href="/cart">Work</a>
+			</li>
+			<li>
+				<a href="#main-content" aria-label="Address, current step">Address</a>
+			</li>
+			<li>
+				<a href="#login">Login</a>
+			</li>
+		</ol>
+	</nav>
 
 <script src="./js/scripts.js"></script>
 </body>
