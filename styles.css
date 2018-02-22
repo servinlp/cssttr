@@ -386,9 +386,9 @@ article {
     margin: 0;
     z-index: -1;
     transition: height 10ms ease; }
-    article [type='checkbox']:focus {
+    article [type='checkbox']:hover, article [type='checkbox']:focus {
       outline: none; }
-      article [type='checkbox']:focus ~ div {
+      article [type='checkbox']:hover ~ div, article [type='checkbox']:focus ~ div {
         transform: scale(1.1);
         box-shadow: 0 0 2em 3px var(--selected-shadow); }
     article [type='checkbox']:not(:checked) {

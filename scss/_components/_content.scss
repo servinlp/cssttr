@@ -118,6 +118,7 @@ article {
 		z-index: -1;
 		transition: height 10ms ease;
 
+		&:hover,
 		&:focus {
 			outline: none;
 
