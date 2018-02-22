@@ -14,6 +14,10 @@ main {
 	h1 {
 		grid-column-start: 1;
 
+		@include s {
+			grid-column-end: 3;
+		}
+
 		@include ms {
 			grid-column-end: 4;
 		}
@@ -22,15 +26,20 @@ main {
 
 article {
 	position: relative;
-	transition: max-height 0.3s ease;
 
-	&:nth-of-type(n+1):nth-of-type(-n+3) > div {
+	&.show {
+		z-index: 20;
+	}
+
+	&:nth-of-type(n+1):nth-of-type(-n+3) {
 
 		@include m {
-			max-height: 20em;
+			> div {
+				max-height: 20em;
 
-			figure {
-				height: 20em;
+				figure {
+					height: 20em;
+				}
 			}
 		}
 	}
@@ -45,7 +54,11 @@ article {
 		transition: max-height 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 		pointer-events: none;
 		will-change: max-height;
+		background: var( --white );
 		box-shadow: 0 0 0.5em 1px var( --shadow );
+		animation: tilesout 0.3s ease-out;
+		animation-fill-mode: forwards;
+		position: relative;
 
 		@include m {
 			max-height: 15em;
@@ -71,7 +84,8 @@ article {
 		top: 0;
 		height: 100%;
 		width: 100%;
-		z-index: 1;
+		z-index: 11;
+		cursor: pointer;
 
 		div {
 			position: absolute;
@@ -122,10 +136,13 @@ article {
 			width: 3em;
 
 			~ div {
+				animation: tilesIn 0.3s ease-in;
+				animation-fill-mode: forwards;
 				border-radius: 10px;
-				max-height: 1000px;
+				max-height: 1500px;
 				pointer-events: all;
 				transform: scale( 1 );
+				z-index: 10;
 
 				figure {
 					height: 20em;
@@ -162,7 +179,6 @@ article {
 	}
 
 	textarea {
-	// TEXTAREA {
 		padding: 1em;
 		font-size: 1em;
 		font-family: var( --font );
@@ -172,7 +188,7 @@ article {
 figure {
 	position: relative;
 	bottom: 0;
-	margin-bottom: 2em;
+	margin: 0 0 2em;
 	height: 10em;
 	transition: height 0.2s ease;
 

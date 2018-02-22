@@ -31,4 +31,16 @@
 
 	}
 
+	const input = Array.from( document.querySelectorAll( 'article > input' ) )
+
+	input.forEach( el => {
+
+		el.addEventListener( 'click', function() {
+
+			this.parentNode.classList.toggle( 'show' )
+
+		} )
+
+	} )
+
 } )()

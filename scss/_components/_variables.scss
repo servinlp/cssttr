@@ -7,6 +7,8 @@
 	--white: #FEFDFF;
 	--black: #000;
 	--gray: #A3A9AA;
+	--red: #ff0000;
+	--green: #008000;
 	--shadow: rgba( 0, 0, 0, 0.4 );
 	--selected-shadow: rgba( 17, 96, 210, 0.4 );
 
@@ -17,6 +19,13 @@
 $desktop: 80em;
 $medium: 60em;
 $medium-small: 40em;
+$small: 30em;
+
+@mixin s {
+	@media ( min-width: #{$small} ) {
+		@content;
+	}
+}
 
 @mixin ms {
 	@media ( min-width: #{$medium-small} ) {
